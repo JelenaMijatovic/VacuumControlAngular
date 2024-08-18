@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Permission, User} from "../model";
+import {Permission} from "../model";
 import {UserService} from "../services/user.service";
 import {AlertService} from "../services/alert.service";
 

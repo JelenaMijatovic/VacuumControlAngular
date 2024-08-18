@@ -2,12 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {
   ActivatedRoute,
-  ActivatedRouteSnapshot,
-  CanActivate,
-  CanDeactivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree
+  Router
 } from '@angular/router';
 import {UserService} from "../services/user.service";
 

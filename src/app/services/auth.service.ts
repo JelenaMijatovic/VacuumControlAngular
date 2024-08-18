@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {User} from "../model";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +8,6 @@ import {User} from "../model";
 export class AuthService {
 
   private readonly apiUrl = "http://localhost:8080"
-  private static httpClient: HttpClient;
-
   constructor(private httpClient: HttpClient) {
 
   }

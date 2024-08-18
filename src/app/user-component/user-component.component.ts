@@ -62,7 +62,7 @@ export class UserComponentComponent implements OnInit {
         }
         this.table.renderRows();
       },
-      error: (e) => {
+      error: () => {
         console.log("You do not have permission to view users!");
       }
     });

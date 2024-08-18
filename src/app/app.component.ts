@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from "./services/user.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,7 @@ export class AppComponent {
   canCreate: boolean
   hasPerms: boolean
 
-  constructor(private userService: UserService) {
+  constructor() {
     this.currPage = 0;
     this.validToken = !!localStorage.getItem("token");
     this.hasPerms = false;

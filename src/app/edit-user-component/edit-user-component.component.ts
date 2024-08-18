@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Permission} from "../model";
 import {UserService} from "../services/user.service";
 import {AlertService} from "../services/alert.service";
 import {Router} from "@angular/router";
@@ -44,7 +43,7 @@ export class EditUserComponentComponent implements OnInit {
       next: (data) => {
         this.alertService.throwAlert("Successfully edited user " + data.email + "!");
       },
-      error: (e) => {
+      error: () => {
         this.alertService.throwAlert("Couldn't successfully edit user " + this.email + "!");
       }
     })
