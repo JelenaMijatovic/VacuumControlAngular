@@ -14,24 +14,26 @@ export class EditUserComponentComponent implements OnInit {
   surname: string
   email: string
   permissions: Array<string>
+  permissionsP: Array<string>
 
   constructor(private router: Router, private userService: UserService, private alertService: AlertService) {
     this.name = "";
     this.surname = "";
     this.email = "";
     this.permissions = [];
+    this.permissionsP = [];
   }
 
   ngOnInit(): void {
     this.userService.getUser(this.router.url.substring(this.router.url.lastIndexOf("/") + 1)).subscribe({
       next: (data) => {
-        console.log(data);
         this.name = data.name;
         this.surname = data.surname;
         this.email = data.email;
         for (let i = 0; i < data.permissions.length; i++) {
-          this.permissions.push(data.permissions[i].permission);
+          this.permissionsP.push(data.permissions[i].permission);
         }
+        this.permissions = this.permissionsP
       },
       error: (e) => {
         console.log(e);

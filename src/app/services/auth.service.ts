@@ -12,10 +12,6 @@ export class AuthService {
 
   }
   login(email: String, password: String) {
-    /*let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer " + localStorage.getItem('token') });
-    let options = { headers: headers };*/
     return this.httpClient.post<any>(`${this.apiUrl}/auth/login`, { email: email, password: password });
   }
 

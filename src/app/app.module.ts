@@ -7,7 +7,7 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 import { UserComponentComponent } from './user-component/user-component.component';
 import { AddUserComponentComponent } from './add-user-component/add-user-component.component';
 import { EditUserComponentComponent } from './edit-user-component/edit-user-component.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from "./auth.interceptor";
 import {MatTableModule} from "@angular/material/table";
@@ -31,7 +31,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpClientModule,
     MatTableModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

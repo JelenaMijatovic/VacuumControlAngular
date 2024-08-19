@@ -9,6 +9,6 @@ export class AlertService {
   constructor(private alert: MatSnackBar) { }
 
   throwAlert(message: string, action?: string) {
-    this.alert.open(message, action);
+    this.alert.open(message, action, {duration: 3000});
   }
 }

@@ -1,16 +1,16 @@
 <div>
   <form (submit)="save()" class="mb-5">
     <div class="form-group mb-2">
-      <label for="email">Name </label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Name" [(ngModel)]="name" required/>
+      <label for="name">Name </label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" [(ngModel)]="name" required minlength="1"/>
     </div>
     <div class="form-group mb-2">
       <label for="surname">Surname </label>
-      <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" [(ngModel)]="surname" required/>
+      <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" [(ngModel)]="surname" required minlength="1"/>
     </div>
     <div class="form-group mb-2">
       <label for="email">Email </label>
-      <input type="text" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="email" required/>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="email" required minlength="5"/>
     </div>
     <div class="form-group mb-2">
       <label for="permissions">Permissions </label>
