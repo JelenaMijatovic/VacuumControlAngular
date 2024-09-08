@@ -14,6 +14,14 @@ import {MatTableModule} from "@angular/material/table";
 import {PasswordPipe} from "./pipes/password.pipe";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { VacuumSearchComponent } from './vacuum-search/vacuum-search.component';
+import { VacuumAddComponent } from './vacuum-add/vacuum-add.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { ErrorsComponent } from './errors/errors.component';
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -22,18 +30,26 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     UserComponentComponent,
     AddUserComponentComponent,
     EditUserComponentComponent,
-    PasswordPipe
+    PasswordPipe,
+    VacuumSearchComponent,
+    VacuumAddComponent,
+    ErrorsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    MatTableModule,
-    MatSnackBarModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        MatTableModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSortModule
+    ],
   providers: [
     {
       provide : HTTP_INTERCEPTORS,

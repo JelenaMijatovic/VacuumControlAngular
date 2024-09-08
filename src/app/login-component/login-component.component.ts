@@ -30,10 +30,10 @@ export class LoginComponentComponent {
     this.authService.login(this.email, this.password)
       .subscribe( {
         next: (data) => {
-          localStorage.setItem('token', JSON.stringify(data.jwt));
+          this.authService.setToken(JSON.stringify(data.jwt));
           this.userService.getMe().subscribe({
             next: (user) => {
-              localStorage.setItem('user', JSON.stringify(user));
+              this.authService.setUser(JSON.stringify(user));
             },
             error: (e) => {
               console.log(e);

@@ -6,6 +6,9 @@ import {UserComponentComponent} from "./user-component/user-component.component"
 import {EditUserComponentComponent} from "./edit-user-component/edit-user-component.component";
 import {AddUserComponentComponent} from "./add-user-component/add-user-component.component";
 import {AuthGuard} from "./auth.guard";
+import {VacuumSearchComponent} from "./vacuum-search/vacuum-search.component";
+import {VacuumAddComponent} from "./vacuum-add/vacuum-add.component";
+import {ErrorsComponent} from "./errors/errors.component";
 
 
 const routes: Routes = [
@@ -32,6 +35,21 @@ const routes: Routes = [
   {
     path:"users/add",
     component: AddUserComponentComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "vacuums",
+    component: VacuumSearchComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"vacuums/add",
+    component: VacuumAddComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"errors",
+    component: ErrorsComponent,
     canActivate: [AuthGuard]
   }
 ];

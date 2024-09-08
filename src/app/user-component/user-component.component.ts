@@ -4,6 +4,7 @@ import {UserService} from "../services/user.service";
 import {User} from "../model";
 import {AlertService} from "../services/alert.service";
 import {MatTable} from "@angular/material/table";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-user-component',
@@ -21,7 +22,7 @@ export class UserComponentComponent implements OnInit {
   users: Array<User>
   displayedColumns: Array<string>
 
-  constructor(private router: Router, private userService: UserService, private alertService : AlertService) {
+  constructor(private router: Router, private authService: AuthService, private userService: UserService, private alertService : AlertService) {
     this.hasPerms = false;
     this.canRead = false;
     this.canUpdate = false;
@@ -29,7 +30,10 @@ export class UserComponentComponent implements OnInit {
     this.permissions = [];
     this.users = [];
     this.displayedColumns = ['email', 'name', 'surname', 'permissions', 'delete'];
-    let user = localStorage.getItem('user');
+  }
+
+  ngOnInit(): void {
+    let user = this.authService.getUser();
     if (user) {
       let userJ = JSON.parse(user);
       for (let perm of userJ.permissions) {
@@ -41,9 +45,6 @@ export class UserComponentComponent implements OnInit {
       this.canUpdate = this.permissions.includes("can_update_users");
       this.canDelete = this.permissions.includes("can_delete_users")
     }
-  }
-
-  ngOnInit(): void {
     if (this.hasPerms) {
       if (this.canRead) {
         this.updateTable();

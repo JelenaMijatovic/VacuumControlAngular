@@ -21,12 +21,6 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (state.url == "/auth/login") {
-      localStorage.removeItem("jwt");
-      localStorage.removeItem("user");
-      return true;
-    }
-
     if (state.url == "/users/add" && localStorage.getItem('token')) {
       let user = localStorage.getItem('user');
       if (user) {
@@ -46,6 +40,19 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
         let userJ = JSON.parse(user);
         for (let perm of userJ.permissions) {
           if (perm.permission == "can_update_users") {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    if (state.url == "/vacuums/add" && localStorage.getItem('token')) {
+      let user = localStorage.getItem('user');
+      if (user) {
+        let userJ = JSON.parse(user);
+        for (let perm of userJ.permissions) {
+          if (perm.permission == "can_add_vacuum") {
             return true;
           }
         }
