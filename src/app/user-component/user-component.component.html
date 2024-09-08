@@ -24,9 +24,9 @@
           <td>{{perm.permission}}</td></tr>
       </mat-cell>
     </ng-container>
-    <ng-container *ngIf="canDelete" matColumnDef="delete">
+    <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-      <mat-cell *matCellDef="let user"> <button (click)="delete(user.email)">Delete</button> </mat-cell>
+      <mat-cell *matCellDef="let user"> <button *ngIf="canDelete" (click)="delete(user.email)">Delete</button> </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
