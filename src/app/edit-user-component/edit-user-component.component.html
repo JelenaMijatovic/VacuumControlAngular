@@ -4,17 +4,14 @@
       <label for="email">Name　</label>
       <input type="text" class="form-control" id="name" name="name" placeholder="Name" [(ngModel)]="name" required/>
     </div>
-    <br>
     <div class="form-group mb-2">
       <label for="surname">Surname　</label>
       <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" [(ngModel)]="surname" required/>
     </div>
-    <br>
     <div class="form-group mb-2">
       <label for="email">Email　</label>
       <input type="text" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="email" required/>
     </div>
-    <br>
     <div class="form-group mb-2">
       <label for="permissions">Permissions　</label>
       <select multiple name="permissions" id="permissions" [(ngModel)]="permissions">
@@ -30,7 +27,6 @@
         <option value="can_discharge_vacuum">Can discharge vacuums</option>
       </select>
     </div>
-    <br>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
