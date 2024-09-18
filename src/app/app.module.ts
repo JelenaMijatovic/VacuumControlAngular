@@ -22,6 +22,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { ErrorsComponent } from './errors/errors.component';
 import {MatSortModule} from "@angular/material/sort";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatSortModule} from "@angular/material/sort";
     PasswordPipe,
     VacuumSearchComponent,
     VacuumAddComponent,
-    ErrorsComponent
+    ErrorsComponent,
+    HeaderComponent
   ],
     imports: [
         BrowserModule,

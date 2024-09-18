@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, ReplaySubject, Subject, tap} from "rxjs";
+import {Observable, ReplaySubject, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +9,29 @@ import {Observable, ReplaySubject, Subject, tap} from "rxjs";
 export class AuthService {
 
   private readonly apiUrl = "http://localhost:8080"
-  private loggedIn: Subject<boolean> = new ReplaySubject<boolean>(1);
+  private loginValue: Subject<boolean> = new ReplaySubject<boolean>(1);
 
   constructor(private httpClient: HttpClient) {
 
   }
 
   login(email: String, password: String) {
-    return this.httpClient.post<any>(`${this.apiUrl}/auth/login`, { email: email, password: password })
-      .pipe(tap(() => {this.loggedIn.next(true)}
-      ));
+    return this.httpClient.post<any>(`${this.apiUrl}/auth/login`, { email: email, password: password });
   }
 
+  loggedIn() {
+    this.loginValue.next(true);
+  }
+
+  logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.loginValue.next(false)
+  }
+
+
   loginStatusChange(): Observable<boolean> {
-    return this.loggedIn.asObservable();
+    return this.loginValue.asObservable();
   }
 
   getToken() {

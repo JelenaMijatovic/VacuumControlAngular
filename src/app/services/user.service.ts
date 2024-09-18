@@ -21,7 +21,6 @@ export class UserService {
   }
 
   getMe(): Observable<User> {
-    console.log("Sending...")
     return this.httpClient.get<User>(`${this.apiUrl}/users/me`)
   }
 
@@ -49,16 +48,4 @@ export class UserService {
     return this.httpClient.delete<User>(`${this.apiUrl}/users/${email}`)
   }
 
-  getComments(postId: number): Observable<Comment[]> {
-    return this.httpClient.get<Comment[]>(`${this.apiUrl}/users/${postId}/comments`);
-  }
-
-  addComment(postId: number, name: string, email: string, body: string): Observable<Comment> {
-    return this.httpClient.post<Comment>(`${this.apiUrl}/posts/${postId}/comments`, {
-      postId: postId,
-      name: name,
-      email: email,
-      body: body
-    })
-  }
 }
